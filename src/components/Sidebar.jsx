@@ -2,7 +2,7 @@ import React from 'react'
 
 function Sidebar() {
   return (
-    <div className='bg-linear-to-br from-slate-900 via-purple-900 to-slate-900  shadow-xl backdrop-blur-lg border-r-2 border-[#4b455c]  w-[248px] h-screen'>
+    <div className='bg-linear-to-br from-slate-900 via-purple-900 to-slate-900  shadow-xl backdrop-blur-lg border-r border-[#4b455c]  w-[248px] h-screen'>
       <div className='flex gap-[60px] py-4 pl-5 items-center mb-2 '>
           <h3 className='text-xl text-white font-bold  '>Folders</h3>
           <button className=" text-[19px] px-3.5 py-1.5 text-white p-4 bg-[#44356d] rounded-xl outline-0  border border-[#8464a3] mb-1.5 hover:bg-[#392c54] ">+</button>
