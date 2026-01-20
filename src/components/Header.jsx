@@ -14,7 +14,7 @@ export default function Header() {
                 type="text" 
                 name="" 
                 placeholder='Search notes...'
-                className='w-116 h-9.5 p-2.5 pl-11.5 outline-0  bg-[#270f3d] border-[#7e7885] border-[0.3px] text-white placeholder:text-[#a8a0b1] rounded-lg '
+                className='w-116 h-9.5 p-2.5 pl-11.5   focus:border-3 focus:outline-[#534e64]  outline-0 bg-[#270f3d] border-[#7e7885] border-[0.3px] text-white placeholder:text-[#a8a0b1] rounded-lg '
               />
           </div>
       </div>

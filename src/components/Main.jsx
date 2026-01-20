@@ -1,9 +1,9 @@
 
 function Main() {
   return (
-    <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900  shadow-xl backdrop-blur-lgp-10 flex items-center justify-center">
+    <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 h-[547px]  shadow-xl backdrop-blur-lgp-10 flex items-center justify-center">
 
-        <div className="p-14 bg-green-600 w-120 rounded-3xl border border-[#4b455c] m-10 items-center flex flex-col justify-center">
+        <div className="p-14 bg-linear-to-br  via-purple-900 to-slate-900  shadow-xl backdrop-blur-lgp-10 w-120 rounded-3xl border border-[#4b455c] m-10 items-center flex flex-col justify-center">
 
             <div className="text-7xl mb-6">📝</div>
             <h1 className="text-4xl font-bold text-white mb-4.5">Start Writing</h1>

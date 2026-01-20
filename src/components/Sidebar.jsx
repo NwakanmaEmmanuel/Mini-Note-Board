@@ -20,7 +20,7 @@ function Sidebar() {
         <input 
           type="text"  
           placeholder='Folder name...' 
-          className='border  border-white rounded-md font-normal flex items-center justify-center mt-4 ml-4.5 p-1.5 pl-4  text-base text-white placeholder:text-white/50
+          className='border  border-white rounded-md font-normal flex items-center justify-center mt-4 ml-4.5 p-1.5 pl-4 focus:border-3 focus:outline-[#4a445b]   text-base text-white placeholder:text-white/50
                     w-[221px] ' 
         />
 
