@@ -8,8 +8,8 @@ function Main() {
             <div className="text-7xl mb-6">📝</div>
             <h1 className="text-4xl font-bold text-white mb-4.5">Start Writing</h1>
             <p className="font-medium text-xl text-[#f3e9ff] mb-5.5">Your thoughts deserve a beautiful home</p>
-            <button className="p-3 mb-[17px] bg-blue-500 text-white text-xl font-bold rounded-[18px]">
-                <span className="mr-[15px]">+</span> Create Your First Note <span className="text-white ml-[15px]">✨</span>
+            <button className=" group p-3 mb-[17px] bg-blue-500 text-white text-xl font-bold rounded-[18px] transform transition hover:scale-105 active:scale-95">
+                <span className="mr-[15px] inline-block transform transition group-hover:rotate-180 duration-700">+</span> Create Your First Note <span className="text-white ml-[15px]">✨</span>
             </button>
             <p className="text-[#8b7d99] ">Press Escape to close • Click anywhere to start</p>
 
