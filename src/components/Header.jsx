@@ -1,6 +1,6 @@
 import Main from './Main'
 
-export default function Header() {
+export default function Header( {addNewNote, notes}) {
   return (
     <div className='flex-1'>
       <div className='bg-linear-to-br from-slate-900 via-[#421267] to-slate-900  shadow-xl backdrop-blur-lg border-b border-[#4b455c] outline-0  flex flex-1 h-48 items-center justify-center flex-col 
@@ -17,7 +17,7 @@ export default function Header() {
               />
           </div>
       </div>
-    <Main/>
+    <Main addNewNote={addNewNote} notes={notes}/>
     </div>
     
   )
