@@ -2,8 +2,8 @@ import Main from './Main'
 
 export default function Header( {addNewNote, notes}) {
   return (
-    <div className='flex-1'>
-      <div className='bg-linear-to-br from-slate-900 via-[#421267] to-slate-900  shadow-xl backdrop-blur-lg border-b border-[#4b455c] outline-0  flex flex-1 h-48 items-center justify-center flex-col 
+    <div className=' flex flex-col basis-[84.5%]'>
+      <div className='bg-linear-to-br from-slate-900 via-[#421267] to-slate-900  shadow-xl backdrop-blur-lg border-b border-[#4b455c] outline-0  flex flex-1 h-48 items-center justify-center flex-col basis-[24%] 
       
       '>
           <h1 className='mb-4 text-shadow-[0_0_30px_rgba(255,255,255,0.3)] text-6xl text-[#f3e9ff] font-black '>Notes✨</h1>
