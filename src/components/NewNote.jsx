@@ -11,19 +11,45 @@ export default function NewNote( {setShowBox , addNewNote}) {
   const [content, setContent] = useState("")
 
 
-  function addNote(e){
-    e.preventDefault()
+
+  // const date = new Date(); // current date and time
+
+  // const year = date.getFullYear();         // 2026
+  // const month = date.getMonth() + 1;       // 1-12 (0 is January, so +1)
+  // const day = date.getDate();              // 1-31
+  // const dayOfWeek = date.getDay();         // 0-6 (0 = Sunday)
+  // const hours = date.getHours();           // 0-23
+  // const minutes = date.getMinutes();       // 0-59
+  // const seconds = date.getSeconds();
+
+  function handleCreateNote(e) {
+  e.preventDefault();
+    const createdAt = new Date().toLocaleString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+
+  
     addNewNote({
       id: Date.now(),
       title,
-      content
+      content,
+      createdAt
     })
+
+      setShowBox(false);
     
   }
 
 
   return (
-    <form onSubmit={addNote} className="bg-linear-to-br from-[#2b2434] via-[#2e213a] to-[#20192b]  w-[520px] right-[600px] top-[5px] h-[273px] p-7 absolute rounded-xl border-[0.5px] border-[#4b455c] ">
+    <form onSubmit={handleCreateNote} className="bg-linear-to-br from-[#2b2434] via-[#2e213a] to-[#20192b]  w-[520px] right-[600px] top-[5px] h-[273px] p-7 absolute rounded-xl border-[0.5px] border-[#4b455c] ">
       <button className="text-black text-lg font-bold absolute left-[488px] top-1.5  "  onClick={() => setShowBox(false)}>x</button>
       <h1 className="text-white text-2xl font-bold mb-2">Create New Note</h1>
       <p className="text-[#c1bcc5] text-sm ">Create a new note with an optional title, content, and folder organization.</p>
