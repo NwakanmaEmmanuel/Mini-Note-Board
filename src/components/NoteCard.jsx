@@ -12,6 +12,10 @@ function NoteCard( {notes}) {
   const hours = date.getHours();           // 0-23
   const minutes = date.getMinutes();       // 0-59
   // const seconds = date.getSeconds();
+  // const hour = new Date().getHours();
+  //   const openHour = 12;
+  //   const closeHour = 22;
+  //   const isOpen = hour >= openHour && hour <= closeHour;
 
   
 
@@ -20,9 +24,9 @@ function NoteCard( {notes}) {
   return (
     <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 basis-[76%] p-[110px]">
       {notes.map((note) => <div key={note.id}>
-        <div className="bg-red-300 p-[25px] w-[260px] flex flex-col">
-          <p>{note.title}</p>
-          <span>{note.content}</span>
+        <div className="p-[25px] w-[260px] flex flex-col border border-[#64428a] bg-transparent rounded-xl ">
+          <h2 className="text-xl text-white font-bold mb-1">{note.title}</h2>
+          <span className="text-sm text-[#c5b9d0] mb-1">{note.content}</span>
           <span>{month}</span>
           <span>{note.createdAt}</span>
         </div>

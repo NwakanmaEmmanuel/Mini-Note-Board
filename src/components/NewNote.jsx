@@ -22,6 +22,26 @@ export default function NewNote( {setShowBox , addNewNote}) {
   // const minutes = date.getMinutes();       // 0-59
   // const seconds = date.getSeconds();
 
+
+
+//   const date = new Date(note.createdAt)
+
+// const shortMonth = date
+//   .toLocaleString("en-US", { month: "short" })
+//   .toUpperCase()
+
+// const longMonth = date.toLocaleString("en-US", {
+//   month: "long"
+// })
+
+// const fullDate = date.toLocaleString("en-US", {
+//   weekday: "long",
+//   year: "numeric",
+//   month: "long",
+//   day: "numeric",
+// })
+
+
   function handleCreateNote(e) {
   e.preventDefault();
     const createdAt = new Date().toLocaleString("en-US", {
