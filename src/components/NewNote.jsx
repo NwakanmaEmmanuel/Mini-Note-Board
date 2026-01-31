@@ -1,4 +1,3 @@
-import Notes from "./NoteCard"
 import { useState } from "react"
 
 
@@ -42,20 +41,11 @@ export default function NewNote( {setShowBox , addNewNote}) {
 // })
 
 
+
   function handleCreateNote(e) {
   e.preventDefault();
-    const createdAt = new Date().toLocaleString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true,
-  });
+    const createdAt = new Date()
 
-
-  
     addNewNote({
       id: Date.now(),
       title,
