@@ -27,7 +27,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote }) {
   let folder
 
   return (
-    <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 basis-[76%] p-[110px] flex flex-wrap gap-4">
+    <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 basis-[76%] p-[110px] flex flex-wrap gap-4 relative">
       {notes.map((note) => {
         const { dateStr, timeStr } = formatDate(note.createdAt);
         
