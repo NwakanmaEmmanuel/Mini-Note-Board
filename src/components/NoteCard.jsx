@@ -1,4 +1,6 @@
-function NoteCard({ notes }) {
+import NewNote from "./NewNote";
+
+function NoteCard({ notes, setShowBox, showBox, addNewNote }) {
 
 
   
@@ -31,14 +33,14 @@ function NoteCard({ notes }) {
         
         return (
           <div key={note.id}>
-            <div className="p-[25px] w-[260px] flex flex-col border border-[#64428a] bg-transparent rounded-xl">
+            <div className=" group p-[25px] w-[290px] flex flex-col border border-[#64428a] bg-transparent rounded-xl relative cursor-pointer">
               <h2 className="text-xl text-white font-bold mb-2.5">{note.title}</h2>
-              <div>
-                <i class="fa-regular fa-pen-to-square"></i>
-                <i class="fa-solid fa-trash-can"></i>
+              <div className=" opacity-0 group-hover:opacity-100 transition-opacity duration-200  absolute right-[17px] top-[55px] flex items-center justify-center gap-[11px]  ">
+                <i className="fa-regular fa-pen-to-square text-[12px] p-2 border border-[#44609e] rounded-md text-[#a1adca] bg-[#3f4773]"></i>
+                <i className="fa-solid fa-trash-can text-[12px] p-2 border border-[#903e4e] rounded-md text-[#ffe2e2] bg-[#613044]"></i>
               </div>
               <div className="text-xs text-[#9b8ba8] mt-auto">
-                <div className="text-[13px] font-bold">{dateStr} {timeStr}</div>
+                <div className="text-[12px] font-bold">{dateStr} {timeStr}</div>
                 <div>{folder ? folder : <div className="mb-10"></div>}</div>
               </div>
               <p className="text-sm text-[#c5b9d0] ">{note.content}</p>
@@ -46,6 +48,9 @@ function NoteCard({ notes }) {
           </div>
         );
       })}
+      {showBox &&  <NewNote setShowBox={setShowBox} addNewNote={addNewNote} notes={notes} />}
+      <button  onClick={() => setShowBox(true)}  className="px-7 py-5 rounded-full text-2xl text-white border border-[#088ddf] fixed right-[11px] bottom-[45px] bg-linear-to-r from-[#9641dd] via-[#5465da] to-[#078eb2] ">+</button>
+
     </div>
   );
 }
