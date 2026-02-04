@@ -27,13 +27,13 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote }) {
   let folder
 
   return (
-    <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 basis-[76%] p-[110px] flex flex-wrap gap-4 relative">
+    <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 basis-[76%] p-[97px] flex flex-wrap gap-4 relative">
       {notes.map((note) => {
         const { dateStr, timeStr } = formatDate(note.createdAt);
         
         return (
           <div key={note.id}>
-            <div className=" group p-[25px] w-[290px] flex flex-col border border-[#64428a] bg-transparent rounded-xl relative cursor-pointer">
+            <div className=" group p-[25px] w-[270px] flex flex-col border border-[#64428a] bg-transparent rounded-xl relative cursor-pointer">
               <h2 className="text-xl text-white font-bold mb-2.5">{note.title}</h2>
               <div className=" opacity-0 group-hover:opacity-100 transition-opacity duration-200  absolute right-[17px] top-[55px] flex items-center justify-center gap-[11px]  ">
                 <i className="fa-regular fa-pen-to-square text-[12px] p-2 border border-[#44609e] rounded-md text-[#a1adca] bg-[#3f4773]"></i>
