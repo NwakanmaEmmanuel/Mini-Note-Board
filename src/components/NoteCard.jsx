@@ -24,6 +24,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote }) {
     };
   }
 
+  // To Implement Folder
   let folder
 
   return (
