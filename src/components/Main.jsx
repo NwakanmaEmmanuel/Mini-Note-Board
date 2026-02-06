@@ -2,14 +2,15 @@ import { useState } from "react"
 import NewNote from "./NewNote";
 import NoteCard from "./NoteCard";
 
-function Main({addNewNote, notes}) {
+function Main({addNewNote,handleDeleteNote, notes}) {
 
     const [showBox, setShowBox] = useState(false);
+
 
   return (
 
     <>
-        {notes.length > 0 ? <NoteCard notes={notes} showBox={showBox} setShowBox={setShowBox} addNewNote={addNewNote}/> : 
+        {notes.length > 0 ? <NoteCard notes={notes} showBox={showBox} setShowBox={setShowBox} addNewNote={addNewNote} handleDeleteNote={handleDeleteNote}/> : 
 
         <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 h-[547px]  shadow-xl backdrop-blur-lgp-10 flex items-center  justify-center relative">
             
