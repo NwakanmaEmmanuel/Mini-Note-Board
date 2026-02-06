@@ -5,6 +5,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote }) 
 
   
   
+  
   function formatDate(dateString) {
     const date = new Date(dateString);
     
@@ -35,7 +36,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote }) 
         return (
           <div key={note.id}>
             <div className=" group p-[25px] w-[270px] flex flex-col border border-[#64428a] bg-transparent rounded-xl relative cursor-pointer">
-              <h2 className="text-xl text-white font-bold mb-2.5">{note.title}</h2>
+              <h2 className="text-xl text-white font-bold mb-2.5">{note.title || "Untitled Note"}</h2>
               <div className=" opacity-0 group-hover:opacity-100 transition-opacity duration-200  absolute right-[17px] top-[55px] flex items-center justify-center gap-[11px]  ">
                 <i className="fa-regular fa-pen-to-square text-[12px] p-2 border border-[#44609e] rounded-md text-[#a1adca] bg-[#3f4773]"></i>
                 <i onClick={() => handleDeleteNote(note.id)} className="fa-solid fa-trash-can text-[12px] p-2 border border-[#903e4e] rounded-md text-[#ffe2e2] bg-[#613044]"></i>
@@ -44,7 +45,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote }) 
                 <div className="text-[12px] font-bold">{dateStr} {timeStr}</div>
                 <div>{folder ? folder : <div className="mb-10"></div>}</div>
               </div>
-              <p className="text-sm text-[#c5b9d0] ">{note.content}</p>
+              <p className="text-sm text-[#c5b9d0] ">{note.content || "No content yet..."}</p>
             </div>
           </div>
         );
