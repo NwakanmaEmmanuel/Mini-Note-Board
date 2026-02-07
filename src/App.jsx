@@ -19,13 +19,9 @@ function App() {
 
   return (
 
-
-
-    <div className='flex h-screen overflow-hidden '>
+    <div className='flex h-screen overflow-hidden  '>
       <Sidebar/>
-      <div className='flex-1 flex flex-col overflow-hidden' >
-        <Header addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes}/>
-      </div>
+      <Header addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes}/>
     </div>
       
   )
