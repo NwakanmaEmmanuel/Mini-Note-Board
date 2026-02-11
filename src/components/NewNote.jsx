@@ -44,13 +44,15 @@ export default function NewNote( {setShowBox , addNewNote}) {
 
   function handleCreateNote(e) {
   e.preventDefault();
-    const createdAt = new Date()
+    // const createdAt = new Date()
+    const now = new Date().toISOString()
 
     addNewNote({
       id: Date.now(),
       title,
       content,
-      createdAt
+      createdAt: now,
+      updatedAt: now
     })
 
       setShowBox(false);

@@ -17,11 +17,17 @@ function App() {
     setNotes(prev => [...prev, newnote])
   }
 
+  const handleUpdateNote = (id, title, content) => {
+    setNotes(prev => prev.map(note => 
+      note.id === id ? {...note, title, content, updatedAt: new Date().toISOString()  } 
+      : note
+    ))
+  }
   return (
 
     <div className='flex h-screen overflow-hidden  '>
       <Sidebar/>
-      <Header addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes}/>
+      <Header addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes} handleUpdateNote={handleUpdateNote}/>
     </div>
       
   )
