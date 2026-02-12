@@ -65,6 +65,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
                 {isEditing ? (
                   <input 
                     type="text"
+                    className="text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-transparent"
                     value={editedTitle}
                     onChange={(e) => setEditedTitle(e.target.value)}
                     autoFocus/>
@@ -76,12 +77,12 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
                 {isEditing ? (
                   <i onClick={() => handleSaveEdit(note.id)} className="fa-solid fa-check"></i>
                 ) : (
-                <i onClick={() => handleEditClick(note)} className="fa-regular fa-pen-to-square text-[12px] p-2 border border-[#44609e] rounded-md text-[#a1adca] bg-[#3f4773]"></i>
+                <i onClick={() => handleEditClick(note)} className="fa-regular fa-pen-to-square text-[13px] p-2 border border-[#44609e] rounded-md text-[#a1adca] bg-[#3f4773] hover:text-[#1d0707]"></i>
                  )}
                  {isEditing ? (
-                  <i onClick={handleCancelEdit} className="fa-solid fa-x"></i>
+                  <i onClick={handleCancelEdit} className="fa-solid fa-x "></i>
                 ) : (
-                <i onClick={() => handleDeleteNote(note.id)} className="fa-solid fa-trash-can text-[12px] p-2 border border-[#903e4e] rounded-md text-[#ffe2e2] bg-[#613044]"></i>
+                <i onClick={() => handleDeleteNote(note.id)} className="fa-solid fa-trash-can text-[13px] p-2 border border-[#903e4e] rounded-md text-[#ffe2e2] bg-[#61303b] hover:text-[#1e0808]"></i>
                  )}
               </div>
               <div className="text-xs text-[#9b8ba8] mt-auto">
@@ -89,11 +90,14 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
                 <div>{folder ? folder : <div className="mb-10"></div>}</div>
               </div>
               {isEditing ? (
-                  <input 
+                  <textarea 
                     type="text"
+                    className="resize-none text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-transparent"
                     value={editedContent}
                     onChange={(e) => setEditedContent(e.target.value)}
-                    autoFocus/>
+                    rows={2}
+                  
+                    />
                 ) : (
                 <p className="text-sm text-[#c5b9d0] ">{note.content || "No content yet..."}</p>)
                 }
