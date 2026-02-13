@@ -65,7 +65,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
                 {isEditing ? (
                   <input 
                     type="text"
-                    className="text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-transparent"
+                    className="text-white outline-1 outline-white border-[#7e7885] border-4 py-[7px] text-[13px] px-2.5 rounded-lg bg-transparent"
                     value={editedTitle}
                     onChange={(e) => setEditedTitle(e.target.value)}
                     autoFocus/>
@@ -92,11 +92,9 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
               {isEditing ? (
                   <textarea 
                     type="text"
-                    className="resize-none text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-transparent"
+                    className=" text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-transparent"
                     value={editedContent}
-                    onChange={(e) => setEditedContent(e.target.value)}
-                    rows={2}
-                  
+                    onChange={(e) => setEditedContent(e.target.value)}                  
                     />
                 ) : (
                 <p className="text-sm text-[#c5b9d0] ">{note.content || "No content yet..."}</p>)
