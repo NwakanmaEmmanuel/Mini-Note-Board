@@ -65,7 +65,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
                 {isEditing ? (
                   <input 
                     type="text"
-                    className="text-white outline-1 outline-white border-[#7e7885] border-4 py-[7px] text-[13px] px-2.5 rounded-lg bg-transparent"
+                    className="text-white outline-0 border-[#7e7885] border-4 py-[7px] text-[13px] px-2.5 rounded-lg mb-2.5 bg-[#451f73]"
                     value={editedTitle}
                     onChange={(e) => setEditedTitle(e.target.value)}
                     autoFocus/>
@@ -75,24 +75,25 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
               
               <div className=" opacity-0 group-hover:opacity-100 transition-opacity duration-200  absolute right-[17px] top-[55px] flex items-center justify-center gap-[11px]  ">
                 {isEditing ? (
-                  <i onClick={() => handleSaveEdit(note.id)} className="fa-solid fa-check"></i>
+                  <i onClick={() => handleSaveEdit(note.id)} className="fa-solid fa-check text-white p-2.5 bg-[#123d23] rounded-md text-[9px] cursor-auto border-[1.5px] border-[#055826] hover:text-[#1d0707] hover:bg-[#16482a]"></i>
                 ) : (
-                <i onClick={() => handleEditClick(note)} className="fa-regular fa-pen-to-square text-[13px] p-2 border border-[#44609e] rounded-md text-[#a1adca] bg-[#3f4773] hover:text-[#1d0707]"></i>
+                <i onClick={() => handleEditClick(note)} className="fa-regular fa-pen-to-square text-[13px] p-2 border border-[#44609e] rounded-md cursor-auto text-[#a1adca] bg-[#3f4773] hover:text-[#1d0707]"></i>
                  )}
+
                  {isEditing ? (
-                  <i onClick={handleCancelEdit} className="fa-solid fa-x "></i>
+                  <i onClick={handleCancelEdit} className="fa-solid fa-x text-white p-2.5 bg-[#451f73] rounded-md text-[9px] cursor-auto border-[1.5px] border-[#745b91] hover:text-[#1d0707] hover:bg-[#593880]"></i>
                 ) : (
-                <i onClick={() => handleDeleteNote(note.id)} className="fa-solid fa-trash-can text-[13px] p-2 border border-[#903e4e] rounded-md text-[#ffe2e2] bg-[#61303b] hover:text-[#1e0808]"></i>
+                <i onClick={() => handleDeleteNote(note.id)} className="fa-solid fa-trash-can text-[13px] p-2 border border-[#903e4e] rounded-md cursor-auto text-[#ffe2e2] bg-[#61303b] hover:text-[#1e0808]"></i>
                  )}
               </div>
-              <div className="text-xs text-[#9b8ba8] mt-auto">
+              <div className="text-xs text-[#9b8ba8] mt-auto top-[76px]">
                 <div className="text-[12px] font-bold">{dateStr} {timeStr}</div>
                 <div>{folder ? folder : <div className="mb-10"></div>}</div>
               </div>
               {isEditing ? (
                   <textarea 
                     type="text"
-                    className=" text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-transparent"
+                    className=" text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-[#451f73]"
                     value={editedContent}
                     onChange={(e) => setEditedContent(e.target.value)}                  
                     />
