@@ -57,6 +57,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
   return (
     <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 basis-[76%] p-[97px] flex-1 overflow-y-auto flex flex-wrap gap-4 relative">
       {notes.map((note) => {
+        
         const { dateStr, timeStr } = formatDate(note.updatedAt);
           const isEditing = editingNoteId === note.id
 
@@ -66,7 +67,8 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
 
             <div 
               className=" group p-[25px] w-[270px] flex flex-col border border-[#64428a] bg-transparent rounded-xl relative cursor-pointer"
-              onClick={() => setToggleNote(true)}
+              onClick = {() => setToggleNote(true) }
+
               >
                 {isEditing ? (
                   <input 
@@ -89,15 +91,15 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
                 
                 <div className=" opacity-0 group-hover:opacity-100 transition-opacity duration-200   flex items-center justify-center gap-[5px]  ">
                   {isEditing ? (
-                    <i onClick={() => handleSaveEdit(note.id)} className="fa-solid fa-check text-white p-2.5 bg-[#123d23] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#055826] hover:text-[#1d0707] hover:bg-[#16482a]"></i>
+                    <i onClick={(e) => { e.stopPropagation(); handleSaveEdit(note.id)}} className="fa-solid fa-check text-white p-2.5 bg-[#123d23] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#055826] hover:text-[#1d0707] hover:bg-[#16482a]"></i>
                   ) : (
-                  <i onClick={() => handleEditClick(note)} className="fa-regular fa-pen-to-square text-[13px] font-extrabold p-2 border border-[#44609e] rounded-md cursor-auto text-[#a1adca] bg-[#3f4773] hover:text-black"></i>
+                  <i onClick={(e) => { e.stopPropagation(); handleEditClick(note)}} className="fa-regular fa-pen-to-square text-[13px] font-extrabold p-2 border border-[#44609e] rounded-md cursor-auto text-[#a1adca] bg-[#3f4773] hover:text-black"></i>
                   )}
 
                   {isEditing ? (
-                    <i onClick={handleCancelEdit} className="fa-solid fa-x text-white p-2.5 bg-[#451f73] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#745b91] hover:text-[#1d0707] hover:bg-[#593880]"></i>
+                    <i onClick={(e) => { e.stopPropagation(); handleCancelEdit()}} className="fa-solid fa-x text-white p-2.5 bg-[#451f73] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#745b91] hover:text-[#1d0707] hover:bg-[#593880]"></i>
                   ) : (
-                  <i onClick={() => handleDeleteNote(note.id)} className="fa-solid fa-trash-can text-[13px] font-extrabold p-2 border border-[#903e4e] rounded-md cursor-auto text-[#ffe2e2] bg-[#61303b] hover:text-black"></i>
+                  <i onClick={(e) => { e.stopPropagation();  handleDeleteNote(note.id)}} className="fa-solid fa-trash-can text-[13px] font-extrabold p-2 border border-[#903e4e] rounded-md cursor-auto text-[#ffe2e2] bg-[#61303b] hover:text-black"></i>
                   )}
                 </div>   
 
