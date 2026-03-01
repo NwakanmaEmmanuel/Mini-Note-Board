@@ -8,7 +8,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
   const [editingNoteId, setEditingNoteId] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
   const [editedContent, setEditedContent] = useState("");
-  const [toggleNote, setToggleNote] = useState(false)
+  const [selectedNote, setSelectedNote] = useState(false)
 
 
   const handleEditClick = (note) => {
@@ -67,7 +67,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
 
             <div 
               className=" group p-[25px] w-[270px] flex flex-col border border-[#64428a] bg-transparent rounded-xl relative cursor-pointer"
-              onClick = {() => setToggleNote(true) }
+              onClick = {() => setSelectedNote(note) }
 
               >
                 {isEditing ? (
@@ -120,7 +120,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
           </div>
         );
       })}
-      {toggleNote && <NoteViewer notes={notes} setToggleNote={setToggleNote} handleUpdateNote={handleUpdateNote} handleDeleteNote={handleDeleteNote}  />}
+      {selectedNote && <NoteViewer note={selectedNote} setSelectedNote={setSelectedNote} editingNoteId={editingNoteId} handleUpdateNote={handleUpdateNote} handleEditClick={handleEditClick} handleDeleteNote={handleDeleteNote}  />}
       {showBox &&  <NewNote setShowBox={setShowBox} addNewNote={addNewNote} notes={notes} />}
       <button  onClick={() => setShowBox(true)}  className="px-7 py-5 rounded-full text-2xl text-white border border-[#088ddf] fixed right-[11px] bottom-[45px] bg-linear-to-r from-[#9641dd] via-[#5465da] to-[#078eb2] ">+</button>
 
