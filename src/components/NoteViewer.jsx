@@ -8,7 +8,7 @@ export default function NoteViewer( {note ,setSelectedNote,editingNoteId, handle
     let folder 
 
     return (
-        
+        // adding modal class
         <div className='absolute inset-0 bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58] border border-[#754797]  text-amber-50 left-[20%] top-[30%] p-6 rounded-[10px] w-[510px] h-[211px] flex flex-col gap-2.5'>
 
             
@@ -44,7 +44,10 @@ export default function NoteViewer( {note ,setSelectedNote,editingNoteId, handle
                         
                     </div>
                     <p className='bg-[#754797] h-[0.1px] mb-[27px]'></p>
-                    <h2 className='text-lg'>{note.content || "No content yet..."}</h2>
+                    <div>
+                        <h2 className='text-lg'>{note.content || "No content yet..."}</h2>
+
+                    </div>
                 </div>
               </div>
             
