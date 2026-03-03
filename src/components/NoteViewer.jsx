@@ -12,7 +12,7 @@ export default function NoteViewer( {note ,setSelectedNote,editingNoteId, handle
         <div
             onClick={() => setSelectedNote(null)}
             className="fixed inset-0 bg-black/40 flex items-center justify-center">
-        <div className=' bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58] border border-[#754797]  text-amber-50 left-[20%] top-[30%] p-6 rounded-[10px] w-[510px] h-[211px] flex flex-col gap-2.5'
+        <div className=' bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58] border border-[#754797] max-h-[80vh]  text-amber-50 left-[20%] top-[30%] p-6 rounded-[10px] w-[510px] flex flex-col gap-2.5'
             onClick={(e) => e.stopPropagation()} >
 
             

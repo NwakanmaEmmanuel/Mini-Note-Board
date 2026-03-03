@@ -67,7 +67,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
 
             <div 
               className=" group p-[25px] w-[270px] flex flex-col border border-[#64428a] bg-transparent rounded-xl relative cursor-pointer"
-              onClick = {() => setSelectedNote(note) }
+              onClick = {(e)  => {if (!isEditing) { {setSelectedNote(note); e.stopPropagation()} }} }
 
               >
                 {isEditing ? (
