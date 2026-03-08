@@ -120,7 +120,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
           </div>
         );
       })}
-      {selectedNote && <NoteViewer note={selectedNote} setSelectedNote={setSelectedNote} editingNoteId={editingNoteId} handleUpdateNote={handleUpdateNote} handleEditClick={handleEditClick} handleDeleteNote={handleDeleteNote}  />}
+      {selectedNote && <NoteViewer note={selectedNote} setSelectedNote={setSelectedNote} handleSaveEdit={handleSaveEdit} handleCancelEdit={handleCancelEdit} editingNoteId={editingNoteId} handleUpdateNote={handleUpdateNote} handleEditClick={handleEditClick} handleDeleteNote={handleDeleteNote}  />}
       {showBox &&  <NewNote setShowBox={setShowBox} addNewNote={addNewNote} notes={notes} />}
       <button  onClick={() => setShowBox(true)}  className="px-7 py-5 rounded-full text-2xl text-white border border-[#088ddf] fixed right-[11px] bottom-[45px] bg-linear-to-r from-[#9641dd] via-[#5465da] to-[#078eb2] ">+</button>
 

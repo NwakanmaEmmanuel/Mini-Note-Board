@@ -1,19 +1,39 @@
 import  { useState } from 'react'
 
 
-export default function NoteViewer( {note ,setSelectedNote,editingNoteId, handleUpdateNote , handleDeleteNote } ) {
+export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , handleDeleteNote } ) {
 
     
 
     let folder 
     const [isEditing, setIsEditing] = useState()
-    const [editedTitle, setEditedTitle] = useState("");
-    const [editedContent, setEditedContent] = useState("");
+    const [editedTitle, setEditedTitle] = useState(note.title);
+    const [editedContent, setEditedContent] = useState(note.content);
 
     const handleEditClick = () => {
         setIsEditing(true)
     }
+    
+    // const handleSaveEdit = (noteId) => {
+    //     handleUpdateNote(noteId, editedTitle, editedContent)
+    //     setIsEditing(false)
+    // }
 
+    // const handleCancelEdit = () => {
+    //     setEditedTitle('')
+    //     setEditedContent("")
+    //     setIsEditing(false)
+    // }
+    const handleSaveEdit = () => {
+        handleUpdateNote(note.id, editedTitle, editedContent)
+        setIsEditing(false)
+    }
+
+    const handleCancelEdit = () => {
+        setEditedTitle(note.title) // Reset to original
+        setEditedContent(note.content) // Reset to original
+        setIsEditing(false)
+    }
     
 
 
@@ -42,14 +62,26 @@ export default function NoteViewer( {note ,setSelectedNote,editingNoteId, handle
                     )}
                     <button onClick={() => setSelectedNote(null)} className=' absolute left-[482px] text-[17px] font-bold text-lg  top-0 hover:scale-[1.3] '>&times;</button>
                     <div  className='flex'>
-                        <button onClick={() => handleEditClick(note)}  className='flex gap-2 items-center px-4 border border-[#44609e] rounded-md cursor-auto text-[#a1adca] bg-[#3f4773] hover:bg-[#414f9b] ' >
+                        {isEditing ? (
+                        <i onClick={ () => handleSaveEdit(note.id)} className="fa-solid fa-check text-white p-2.5 bg-[#123d23] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#055826] hover:text-[#1d0707] hover:bg-[#16482a]"></i>
+
+                        ) : (
+                        <button onClick={handleEditClick}  className='flex gap-2 items-center px-4 border border-[#44609e] rounded-md cursor-auto text-[#a1adca] bg-[#3f4773] hover:bg-[#414f9b] ' >
                             <i className="fa-regular fa-pen-to-square text-[13px] font-extrabold  hover:text-black"></i>               
                             <p>Edit</p>
                         </button>
+                        )}
+                        {isEditing ? (
+                        <i onClick={ handleCancelEdit()} className="fa-solid fa-x text-white p-2.5 bg-[#451f73] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#745b91] hover:text-[#1d0707] hover:bg-[#593880]"></i>
+
+                        ) : (
                         <button onClick={() => {  handleDeleteNote(note.id); setSelectedNote(null)}} className='flex gap-2 ml-[18px] px-4 items-center  border border-[#aa4a5d] rounded-md cursor-auto text-[#ffe2e2] bg-[#692432] hover:bg-[#892237]'>
                             <i className="fa-solid fa-trash-can text-[13px] font-extrabold "></i>
                             <p>Delete</p>
                         </button>
+                        )}
+                        
+                        
                     </div>    
                 </div>
                 
@@ -69,8 +101,17 @@ export default function NoteViewer( {note ,setSelectedNote,editingNoteId, handle
                     </div>
                     <div className='bg-[#754797] h-[0.5px] mb-4'></div>
                     <div className='overflow-y-auto flex-1 min-h-0'>
+                        {isEditing ? (
+                        <textarea 
+                            type="text"
+                            className=" text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-[#451f73] field-sizing-content"
+                            value={editedContent}
+                            onChange={(e) => setEditedContent(e.target.value)}                  
+                        />
+                        ) : (
                         <h2 className=' text-amber-50 text-lg whitespace-pre-wrap'>{note.content || "No content yet..."}</h2>
 
+                        )}
                     </div>
               </div>
             
