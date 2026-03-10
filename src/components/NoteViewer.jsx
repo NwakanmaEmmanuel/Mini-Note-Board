@@ -44,7 +44,7 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
         <div
             onClick={() => setSelectedNote(null)}
             className="fixed inset-0 bg-black/40 flex items-center justify-center">
-        <div className=' bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58]  border border-[#754797] max-h-[80vh]  text-amber-50 left-[20%] top-[30%] p-6 rounded-[10px] w-[510px] flex flex-col gap-2.5'
+        <div className='sticky bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58]  border border-[#754797] max-h-[80vh]  text-amber-50 left-[20%] top-[30%] p-6 rounded-[10px] w-[510px] flex flex-col gap-2.5'
             onClick={(e) => e.stopPropagation()} >
 
             
@@ -63,7 +63,7 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
                     <button onClick={() => setSelectedNote(null)} className=' absolute left-[482px] text-[17px] font-bold text-lg  top-0 hover:scale-[1.3] '>&times;</button>
                     <div  className='flex'>
                         {isEditing ? (
-                        <i onClick={ () => handleSaveEdit(note.id)} className="fa-solid fa-check text-white p-2.5 bg-[#123d23] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#055826] hover:text-[#1d0707] hover:bg-[#16482a]"></i>
+                        <i onClick={ () => handleSaveEdit} className="fa-solid fa-check text-white p-2.5 bg-[#123d23] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#055826] hover:text-[#1d0707] hover:bg-[#16482a]"></i>
 
                         ) : (
                         <button onClick={handleEditClick}  className='flex gap-2 items-center px-4 border border-[#44609e] rounded-md cursor-auto text-[#a1adca] bg-[#3f4773] hover:bg-[#414f9b] ' >
@@ -72,10 +72,10 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
                         </button>
                         )}
                         {isEditing ? (
-                        <i onClick={ handleCancelEdit()} className="fa-solid fa-x text-white p-2.5 bg-[#451f73] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#745b91] hover:text-[#1d0707] hover:bg-[#593880]"></i>
+                        <i onClick={ handleCancelEdit} className="fa-solid fa-x text-white p-2.5 bg-[#451f73] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#745b91] hover:text-[#1d0707] hover:bg-[#593880]"></i>
 
                         ) : (
-                        <button onClick={() => {  handleDeleteNote(note.id); setSelectedNote(null)}} className='flex gap-2 ml-[18px] px-4 items-center  border border-[#aa4a5d] rounded-md cursor-auto text-[#ffe2e2] bg-[#692432] hover:bg-[#892237]'>
+                        <button onClick={() => {  handleDeleteNote; setSelectedNote(null)}} className='flex gap-2 ml-[18px] px-4 items-center  border border-[#aa4a5d] rounded-md cursor-auto text-[#ffe2e2] bg-[#692432] hover:bg-[#892237]'>
                             <i className="fa-solid fa-trash-can text-[13px] font-extrabold "></i>
                             <p>Delete</p>
                         </button>
