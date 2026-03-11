@@ -52,7 +52,7 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
                     {isEditing ? (
                     <input 
                         type="text"
-                        className="text-white outline-0 border-[#7e7885] border-4 py-[7px] text-[13px] px-2.5 rounded-lg mb-2.5 bg-[#451f73]"
+                        className="text-white outline-0 border-[#7e7885] border-4 w-[280px] py-[7px] text-[13px] px-2.5 rounded-lg mb-2.5 bg-[#705095]"
                         value={editedTitle}
                         onChange={(e) => setEditedTitle(e.target.value)}
                         autoFocus/>
@@ -63,8 +63,11 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
                     <button onClick={() => setSelectedNote(null)} className=' absolute left-[482px] text-[17px] font-bold text-lg  top-0 hover:scale-[1.3] '>&times;</button>
                     <div  className='flex'>
                         {isEditing ? (
-                        <i onClick={ () => handleSaveEdit} className="fa-solid fa-check text-white p-2.5 bg-[#123d23] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#055826] hover:text-[#1d0707] hover:bg-[#16482a]"></i>
-
+                        <div>
+                            <i onClick={ () => handleSaveEdit} className="fa-solid fa-check text-white p-2.5 bg-[#123d23] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#055826] hover:text-[#1d0707] hover:bg-[#16482a]"></i>
+                            <p>Save</p>
+                        </div>
+                        
                         ) : (
                         <button onClick={handleEditClick}  className='flex gap-2 items-center px-4 border border-[#44609e] rounded-md cursor-auto text-[#a1adca] bg-[#3f4773] hover:bg-[#414f9b] ' >
                             <i className="fa-regular fa-pen-to-square text-[13px] font-extrabold  hover:text-black"></i>               
@@ -72,8 +75,11 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
                         </button>
                         )}
                         {isEditing ? (
-                        <i onClick={ handleCancelEdit} className="fa-solid fa-x text-white p-2.5 bg-[#451f73] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#745b91] hover:text-[#1d0707] hover:bg-[#593880]"></i>
-
+                        <div>
+                            <i onClick={ handleCancelEdit} className="fa-solid fa-x text-white p-2.5 bg-[#451f73] rounded-md text-[13px] font-light cursor-auto border-[1.5px] border-[#745b91] hover:text-[#1d0707] hover:bg-[#593880]"></i>
+                            <p>Cancel</p>
+                        </div>
+                        
                         ) : (
                         <button onClick={() => {  handleDeleteNote; setSelectedNote(null)}} className='flex gap-2 ml-[18px] px-4 items-center  border border-[#aa4a5d] rounded-md cursor-auto text-[#ffe2e2] bg-[#692432] hover:bg-[#892237]'>
                             <i className="fa-solid fa-trash-can text-[13px] font-extrabold "></i>
@@ -104,7 +110,7 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
                         {isEditing ? (
                         <textarea 
                             type="text"
-                            className=" text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-[#451f73] field-sizing-content"
+                            className=" text-white bg-[#705095] outline-1 resize-none h-[358px] w-[35em] outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg -sizing-content"
                             value={editedContent}
                             onChange={(e) => setEditedContent(e.target.value)}                  
                         />
