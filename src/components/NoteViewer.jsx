@@ -101,7 +101,7 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
                         </button>
                         
                         ) : (
-                        <button onClick={() => {  handleDeleteNote; setSelectedNote(null)}} className='flex gap-2 ml-[18px] px-4 items-center  border border-[#aa4a5d] rounded-md cursor-auto text-[#ffe2e2] bg-[#692432] hover:bg-[#892237]'>
+                        <button onClick={() => {  handleDeleteNote(note.id); setSelectedNote(null)}} className='flex gap-2 ml-[18px] px-4 items-center  border border-[#aa4a5d] rounded-md cursor-auto text-[#ffe2e2] bg-[#692432] hover:bg-[#892237]'>
                             <i className="fa-solid fa-trash-can text-[13px] font-extrabold "></i>
                             <p>Delete</p>
                         </button>
