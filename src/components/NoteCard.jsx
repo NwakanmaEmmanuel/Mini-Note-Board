@@ -36,9 +36,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
     const date = new Date(dateString);
     
     const shortMonth = date.toLocaleString("en-US", { month: "short" });
-    const day = date.getDate();
-    const year = date.getFullYear();
-    
+    const day = date.getDate();    
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const ampm = hours >= 12 ? 'PM' : 'AM';
