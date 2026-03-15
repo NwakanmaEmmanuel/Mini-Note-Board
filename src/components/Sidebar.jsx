@@ -26,7 +26,7 @@ function Sidebar() {
           <button onClick={ () => setShowFolder(true)} className=" text-[19px] px-3.5 py-1.5 ml-[60px] text-white p-4 bg-[#44356d] rounded-xl outline-0  border border-[#8464a3] mb-1.5 hover:bg-[#392c54] ">+</button>
       </div>
 
-        <div className="p-2 flex items-center justify-center backdrop-blur-sm bg-[#261a47]   text-white border-white border  rounded-md hover:bg-[#E9EbEF] hover:text-black ">
+        <div className="p-2 flex items-center justify-center backdrop-blur-sm bg-[#261a47]   text-white border-white/20 border  rounded-md hover:bg-[#E9EbEF] hover:text-black ">
           <i className="fa-regular  fa-folder-open"></i>
           <span className='font-semibold ml-4'>All Notes</span>
           <span className='ml-[67px] rounded-full px-2 py-1 bg-white/20 text-sm'>0</span>
@@ -59,11 +59,11 @@ function Sidebar() {
 
 
       {/* Folder List */}
-      <div className='w-full px-2 mt-4 overflow-y-auto'>
+      <div className='w-full px-2 mt-2 overflow-y-auto'>
         {folders.map((folder) => (
           <div 
             key={folder.id} 
-            className="p-2 flex items-center backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-2">
+            className="p-2 flex items-center backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-[6px]">
             <i className="fa-regular fa-folder"></i>
             <span className='font-semibold ml-4'>{folder.name}</span>
           </div>
