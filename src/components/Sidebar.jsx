@@ -4,6 +4,18 @@ function Sidebar() {
 
 
   const [showFolder, setShowFolder] = useState(false)
+  const [folders, setFolders] = useState([])  // Array to store folders
+  const [newFolderName, setNewFolderName] = useState("")
+
+
+  const handleCreateFOlder = () => {
+    if (newFolderName) {
+      setFolders([...folders, {id: Date.now(), name: newFolderName }])
+      setNewFolderName("")
+      setShowFolder(false)
+    }
+  }
+
 
 
 
@@ -24,10 +36,13 @@ function Sidebar() {
           <input 
             type="text"  
             placeholder='Folder name...' 
+            value={newFolderName}
+            onChange={(e) => setNewFolderName(e.target.value)} 
             className='border  border-white rounded-md font-normal flex items-center justify-center w-full mt-4  p-1.5 pl-4 focus:border-3 focus:outline-[#4a445b]  bg-[#261a47]  text-base text-white placeholder:text-white/50  ' 
           />                                               
             <div className='flex items-center justify-evenly mt-2'>
             <button 
+              onClick={handleCreateFOlder}
               className='px-6 py-1 font-medium  text-[#dcfce7] border bg-[#203f42] hover:bg-[#264b4e] rounded-sm text-sm '>
               ✓  Create 
             </button>
@@ -40,6 +55,21 @@ function Sidebar() {
           
         </div>
       }
+
+
+
+      {/* Folder List */}
+      <div className='w-full px-2 mt-4 overflow-y-auto'>
+        {folders.map((folder) => (
+          <div 
+            key={folder.id} 
+            className="p-2 flex items-center backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-2">
+            <i className="fa-regular fa-folder"></i>
+            <span className='font-semibold ml-4'>{folder.name}</span>
+          </div>
+        ))}
+      </div>
+
 
     </div>
   )
