@@ -4,10 +4,13 @@ import Sidebar from './components/Sidebar'
 import Header from './components/Header'
 // import { useState } from 'react'
 import useLocalStorage from './components/useLocalStorage'
+import { useState } from 'react'
 
 function App() {
 
   const [notes, setNotes] = useLocalStorage('notes-app-data',[])
+
+  const [selectedFolder, setSelectedFolder] = useState('')
 
   function handleDeleteNote(id) {
     setNotes((notes) => notes.filter((note) => note.id !== id))
@@ -26,8 +29,9 @@ function App() {
   return (
 
     <div className='flex h-screen overflow-hidden  '>
-      <Sidebar/>
-      <Header addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes} handleUpdateNote={handleUpdateNote}/>
+      <Sidebar notes={notes} setSelectedFolder={setSelectedFolder}/>
+      <Header addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote}/>
+       
     </div>
       
   )

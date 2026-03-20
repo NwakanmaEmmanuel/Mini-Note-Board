@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import NewNote  from './NewNote'
 
-function Sidebar() {
+function Sidebar( {notes, setSelectedFolder}) {
 
   const [showFolder, setShowFolder] = useState(false)
   const [folders, setFolders] = useState([])
   const [newFolderName, setNewFolderName] = useState("")
+  // const [showFolderTab, setShowFolderTab] = useState(null)
 
   const handleCreateFolder = () => {
     if (newFolderName.trim()) {
@@ -18,6 +20,8 @@ function Sidebar() {
     setNewFolderName("")
     setShowFolder(false)
   }
+
+
 
   return (
     <div className='bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 shadow-xl backdrop-blur-lg border-r border-[#4b455c] p-4 h-screen flex flex-col basis-[15.5%]'>
@@ -36,21 +40,20 @@ function Sidebar() {
       <div className="p-2.5 flex items-center text-sm w-full backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-3">
         <i className="fa-regular fa-folder-open"></i>
         <span className='font-semibold ml-3 flex-1'>All Notes</span>
-        <span className='rounded-full px-2 py-0.5 bg-white/20 text-xs'>0</span>
+        <span className='rounded-full px-2 py-0.5 bg-white/20 text-xs'>{notes.length}</span>
       </div>
 
       {/* Folder List */}
       <div className='flex-1 overflow-y-auto overflow-x-hidden pr-1'>
+           {folders.map((folder) => (
 
-          
-
-
-          {folders.map((folder) => (
+            // const  folder.name.length > 13 ? folder.name : folder.name.split(" ").slice(0, 10).join(" ") + "...";
             <div 
-              key={folder.id} 
+              key={folder.id}
+              onClick={() => setSelectedFolder(folder)} 
               className="p-2.5 flex items-center w-full backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-2 transition-colors">
               <i className="fa-regular fa-folder text-sm"></i>
-              <span className='text-sm font-semibold ml-3 flex-1 truncate text-white/90'>
+              <span className='text-sm font-semibold ml-3 flex-1 truncate w-[150px] text-white/90'>
                 {folder.name}
               </span>
               <span className='rounded-full px-2 py-0.5 bg-white/20 text-xs ml-2'>0</span>
@@ -90,6 +93,9 @@ function Sidebar() {
           
           
           
+      {/* ✅ Show FolderTab modal when a folder is clicked */}
+    {/* {showFolderTab && <FolderTab setShowFolderTab={setShowFolderTab} folder={showFolderTab} />} */}
+
 
     </div>
   )
