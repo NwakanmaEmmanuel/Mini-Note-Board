@@ -37,7 +37,7 @@ function Sidebar( {notes, setSelectedFolder}) {
       </div>
 
       {/* All Notes */}
-      <div className="p-2.5 flex items-center text-sm w-full backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-3">
+      <div onClick={ () => setSelectedFolder(false)} className="p-2.5 flex items-center text-sm w-full backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-3">
         <i className="fa-regular fa-folder-open"></i>
         <span className='font-semibold ml-3 flex-1'>All Notes</span>
         <span className='rounded-full px-2 py-0.5 bg-white/20 text-xs'>{notes.length}</span>
