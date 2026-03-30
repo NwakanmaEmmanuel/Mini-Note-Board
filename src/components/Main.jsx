@@ -27,7 +27,7 @@ function Main({addNewNote,handleDeleteNote,selectedFolder, folder, folders, setS
                     />
             ) : (
             notes.length > 0 ? 
-                <NoteCard notes={notes} showBox={showBox} setShowBox={setShowBox} addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} handleUpdateNote={handleUpdateNote}/> : 
+                <NoteCard notes={notes} showBox={showBox} setShowBox={setShowBox} addNewNote={addNewNote} folders={folders} handleDeleteNote={handleDeleteNote} handleUpdateNote={handleUpdateNote}/> : 
  
                 <>
             <div className="p-14 bg-linear-to-br  via-purple-900 to-slate-900  shadow-xl backdrop-blur-lgp-10 w-120 rounded-3xl border border-[#4b455c] m-10 items-center flex flex-col justify-center">
@@ -40,7 +40,7 @@ function Main({addNewNote,handleDeleteNote,selectedFolder, folder, folders, setS
                 </button>
                 <p className="text-[#8b7d99] ">Press Escape to close • Click anywhere to start</p>
 
-            {showBox &&  <NewNote setShowBox={setShowBox} addNewNote={addNewNote} notes={notes} />}
+            {showBox &&  <NewNote setShowBox={setShowBox} addNewNote={addNewNote} folders={folders} folder={selectedFolder} notes={notes} />}
             {/* {notes.length > 0 && <NoteCard notes={notes}/>} */}
 
             </div>

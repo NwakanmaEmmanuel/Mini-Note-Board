@@ -2,7 +2,7 @@ import NewNote from "./NewNote";
 import { useState } from "react";
 import NoteViewer from "./NoteViewer";
 
-function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, handleUpdateNote }) {
+function NoteCard({ notes, setShowBox, showBox, folders, addNewNote, handleDeleteNote, handleUpdateNote }) {
 
 
   const [editingNoteId, setEditingNoteId] = useState(null);
@@ -50,12 +50,12 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
   }
 
   // To Implement Folder
-  let folder
 
   return (
     <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 basis-[76%] p-[97px] flex-1 overflow-y-auto flex flex-wrap gap-4 relative">
       {notes.map((note) => {
         
+        const noteFolder = folders?.find(f => f.id === note.folderId);
         const { dateStr, timeStr } = formatDate(note.updatedAt);
           const isEditing = editingNoteId === note.id
 
@@ -83,7 +83,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
 
                 <div className="text-xs text-[#9b8ba8] mt-auto flex flex-col ">
                   <div className="text-[12px] font-bold">{dateStr} {timeStr}</div>
-                  <div>{folder ? folder : <div className="mb-10"></div>}</div>
+                  <div>{noteFolder ? noteFolder.name : <div className="mb-10"></div>}</div>
                 </div>
 
                 
@@ -118,7 +118,7 @@ function NoteCard({ notes, setShowBox, showBox, addNewNote, handleDeleteNote, ha
           </div>
         );
       })}
-      {selectedNote && <NoteViewer note={selectedNote} setSelectedNote={setSelectedNote} handleSaveEdit={handleSaveEdit} handleCancelEdit={handleCancelEdit} editingNoteId={editingNoteId} handleUpdateNote={handleUpdateNote} handleEditClick={handleEditClick} handleDeleteNote={handleDeleteNote}  />}
+      {selectedNote && <NoteViewer note={selectedNote} setSelectedNote={setSelectedNote} folders={folders} handleSaveEdit={handleSaveEdit} handleCancelEdit={handleCancelEdit} editingNoteId={editingNoteId} handleUpdateNote={handleUpdateNote} handleEditClick={handleEditClick} handleDeleteNote={handleDeleteNote}  />}
       {showBox &&  <NewNote setShowBox={setShowBox} addNewNote={addNewNote} notes={notes} />}
       <button  onClick={() => setShowBox(true)}  className="px-7 py-5 rounded-full text-2xl text-white border border-[#088ddf] fixed right-[11px] bottom-[45px] bg-linear-to-r from-[#9641dd] via-[#5465da] to-[#078eb2] ">+</button>
 

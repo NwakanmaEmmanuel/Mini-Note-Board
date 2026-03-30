@@ -1,11 +1,10 @@
 import  { useState } from 'react'
 
 
-export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , handleDeleteNote } ) {
+export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote ,folders, handleDeleteNote } ) {
 
     
 
-    let folder 
     const [isEditing, setIsEditing] = useState()
     const [editedTitle, setEditedTitle] = useState(note.title);
     const [editedContent, setEditedContent] = useState(note.content);
@@ -55,6 +54,7 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
     }
 
         const { dateStr, timeStr } = formatDate(note.updatedAt);
+        const noteFolder = folders?.find(f => f.id === note.folderId);
 
 
 
@@ -112,19 +112,16 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote , h
                 </div>
                 
 
-                    <div className='flex gap-[23px]  mb-4'>
+                    <div className='flex gap-[23px]  mb-4 items-center'>
                         <div className='bg-[#754797] rounded-2xl px-[13px] py-1.5'>
                             <i className="fa-regular fa-calendar mr-2.5"></i><span className='text-[13px]  text-[#beb8c3] font-bold'>Created {dateStr} at {timeStr}</span>
                         </div>
-                        {folder ?  
-                            <div className='bg-[#754797] rounded-2xl px-[13px] py-1.5 '>Monday, January 26, 2026 at 11:00 PM 
+                         {noteFolder &&
+                            // <div className='bg-[#754797] rounded-2xl px-[13px] py-1.5 '>Monday, January 26, 2026 at 11:00 PM 
 
-                            
-                            <i class="fa-regular fa-folder text-[#beb8c3] mr-2.5"></i><span className='text-[13px]  font-bold'>Folder</span>
-                        </div>
-                        : 
-                        folder
-                        }
+                        <div className='bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58] px-3.5 py-1.5 border rounded-[19px]  text-[#beb8c3]'>
+                            <i class="fa-regular fa-folder text-[#beb8c3] text-[14px] mr-2.5"></i><span className='text-[12px]  font-bold'>{noteFolder.name}</span>
+                        </div>}
                         
                     </div>
                     <div className='bg-[#754797] h-[0.5px] mb-4'></div>

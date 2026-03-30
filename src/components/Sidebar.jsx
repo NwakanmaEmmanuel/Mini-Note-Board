@@ -55,7 +55,8 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
               <span className='text-sm font-semibold ml-3 flex-1 truncate w-[150px] text-white/90'>
                 {folder.name}
               </span>
-              <span className='rounded-full px-2 py-0.5 bg-white/20 text-xs ml-2'>0</span>
+              <span className='rounded-full px-2 py-0.5 bg-white/20 text-xs ml-2'>  {notes.filter(note => note.folderId === folder.id).length}
+              </span>
             </div>
           ))}
 

@@ -3,11 +3,12 @@ import { useState } from "react"
 
 
 
-export default function NewNote( {setShowBox ,folder, folders, setSelectedFolder, addNewNote}) {
+export default function NewNote( {setShowBox, folders,currentFolderId, setSelectedFolder, addNewNote}) {
 
 
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
+  const [selectedFolderId, setSelectedFolderId] = useState(currentFolderId || "")
 
 
 
@@ -51,6 +52,8 @@ export default function NewNote( {setShowBox ,folder, folders, setSelectedFolder
       id: Date.now(),
       title,
       content,
+      folderId: selectedFolderId || null,
+
       createdAt: now,
       updatedAt: now
     })
@@ -76,11 +79,11 @@ export default function NewNote( {setShowBox ,folder, folders, setSelectedFolder
               />
       {folders ?       
         <select className="border w-full p-1.5 mb-3.5 rounded-lg bg-[#3f3848] border-[#7e7885] text-sm outline-0 text-white " 
-        value={folders} onChange={(e) => setSelectedFolder(e.target.value)} >
+        value={selectedFolderId} onChange={(e) => setSelectedFolderId(e.target.value)} >
           <option className="bg-black" value="" >No folder</option>
           {folders.map((f) => (
             <option className="bg-black hover:bg-white"
-               key={f.id} value={f.name} >{f.name}</option>
+               key={f.id} value={f.id} >{f.name}</option>
 
           )) }
         </select> : ""}
