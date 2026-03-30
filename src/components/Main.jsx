@@ -19,6 +19,7 @@ function Main({addNewNote,handleDeleteNote,selectedFolder, folder, folders, setS
                 <FolderTab 
                     folder={selectedFolder}  
                     folders={folders}
+                    addNewNote={addNewNote}
                     setSelectedFolder={setSelectedFolder} 
                     notes={notes}
                     showBox={showBox}

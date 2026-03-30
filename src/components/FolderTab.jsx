@@ -1,7 +1,7 @@
 import { useState } from "react"
 import NewNote from "./NewNote"
 
-export default function FolderTab({ folder,folders,setShowBox,showBox, setSelectedFolder, notes }) {
+export default function FolderTab({ folder,folders,setShowBox,showBox, addNewNote, setSelectedFolder, notes }) {
 
   return (
     // <div className="p-14 bg-red-600 shadow-xl   rounded-3xl border border-[#4b455c] m-10 flex flex-col">
@@ -15,7 +15,7 @@ export default function FolderTab({ folder,folders,setShowBox,showBox, setSelect
         <button onClick={() => setShowBox(true)} className=" group p-3 mb-[17px] bg-blue-500 text-white text-xl font-bold rounded-[18px] transform transition hover:scale-105 active:scale-95 bg-linear-to-r from-[#9641dd] via-[#5465da] to-[#078eb2]  ">
             <span className="mr-[15px] inline-block">+</span> Create Your First Note <span className="text-white ml-[15px]">✨</span>
         </button>
-        {showBox &&  <NewNote folders={folders} setSelectedFolder={setSelectedFolder} />}
+        {showBox &&  <NewNote folders={folders} setShowBox={setShowBox} addNewNote={addNewNote} setSelectedFolder={setSelectedFolder} />}
         
        </div>
     // </div>
