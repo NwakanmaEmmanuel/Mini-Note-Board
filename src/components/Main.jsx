@@ -12,7 +12,7 @@ function Main({addNewNote,handleDeleteNote,selectedFolder, setSelectedFolder, no
 
 
         
-        <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 h-[547px]  shadow-xl backdrop-blur-lgp-10 flex items-center  justify-center relative basis-[76%]">
+        <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 h-[547px]  shadow-xl backdrop-blur-lgp-10 flex justify-center overflow-hidden relative basis-[76%]">
             
            {selectedFolder ? (
 
@@ -40,7 +40,8 @@ function Main({addNewNote,handleDeleteNote,selectedFolder, setSelectedFolder, no
 
             </div>
         
-        <button  onClick={() => setShowBox(true)}  className="px-7 py-5 rounded-full text-2xl text-white border border-[#088ddf] fixed right-[11px] bottom-[45px] bg-linear-to-r from-[#9641dd] via-[#5465da] to-[#078eb2] ">+</button>)
+        <button  onClick={() => setShowBox(true)}  className="px-7 py-5 rounded-full text-2xl text-white border border-[#088ddf] fixed right-[11px] bottom-[45px] bg-linear-to-r from-[#9641dd] via-[#5465da] to-[#078eb2] ">+</button>
+        
         </>
         ) }
 
