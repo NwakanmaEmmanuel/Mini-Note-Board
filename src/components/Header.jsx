@@ -1,7 +1,7 @@
 import Main from './Main'
 import FolderTab from './FolderTab'
 
-export default function Header( {addNewNote, handleDeleteNote, selectedFolder, setSelectedFolder, notes, handleUpdateNote}) {
+export default function Header( {addNewNote, handleDeleteNote, folders, selectedFolder, setSelectedFolder, notes, handleUpdateNote}) {
   return (
     <div className=' flex flex-col basis-[84.5%] '>
       <div className='bg-linear-to-br from-slate-900 via-[#421267] to-slate-900  shadow-xl backdrop-blur-lg border-b border-[#4b455c] outline-0  flex flex-1 h-48 items-center justify-center flex-col basis-[24%] 
@@ -25,7 +25,7 @@ export default function Header( {addNewNote, handleDeleteNote, selectedFolder, s
           setSelectedFolder={setSelectedFolder}
           notes={notes}/>
       ) : ( */}
-      <Main addNewNote={addNewNote} notes={notes} handleDeleteNote={handleDeleteNote} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote}/>
+      <Main addNewNote={addNewNote} notes={notes} folders={folders} handleDeleteNote={handleDeleteNote} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote}/>
 
 
     </div>

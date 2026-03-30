@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import NewNote  from './NewNote'
 
-function Sidebar( {notes, setSelectedFolder}) {
+function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
 
   const [showFolder, setShowFolder] = useState(false)
-  const [folders, setFolders] = useState([])
   const [newFolderName, setNewFolderName] = useState("")
   // const [showFolderTab, setShowFolderTab] = useState(null)
 

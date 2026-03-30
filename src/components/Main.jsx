@@ -3,7 +3,7 @@ import NewNote from "./NewNote";
 import NoteCard from "./NoteCard";
 import FolderTab from "./FolderTab";
 
-function Main({addNewNote,handleDeleteNote,selectedFolder, setSelectedFolder, notes, handleUpdateNote}) {
+function Main({addNewNote,handleDeleteNote,selectedFolder, folder, folders, setSelectedFolder, notes, handleUpdateNote}) {
 
     const [showBox, setShowBox] = useState(false);
 
@@ -18,8 +18,12 @@ function Main({addNewNote,handleDeleteNote,selectedFolder, setSelectedFolder, no
 
                 <FolderTab 
                     folder={selectedFolder}  
+                    folders={folders}
                     setSelectedFolder={setSelectedFolder} 
-                    notes={notes}/>
+                    notes={notes}
+                    showBox={showBox}
+                    setShowBox={setShowBox}
+                    />
             ) : (
             notes.length > 0 ? 
                 <NoteCard notes={notes} showBox={showBox} setShowBox={setShowBox} addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} handleUpdateNote={handleUpdateNote}/> : 

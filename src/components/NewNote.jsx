@@ -3,7 +3,7 @@ import { useState } from "react"
 
 
 
-export default function NewNote( {setShowBox , addNewNote}) {
+export default function NewNote( {setShowBox ,folder, folders, setSelectedFolder, addNewNote}) {
 
 
   const [title, setTitle] = useState("")
@@ -74,6 +74,15 @@ export default function NewNote( {setShowBox , addNewNote}) {
         placeholder='Note title...'
         className=' min-w-116  h-9.5 p-2.5 text-sm mb-3.5 focus:border-3 focus:outline-[#534e64]  outline-0 bg-[#3f3848] border-[#7e7885] border-[0.3px] text-white placeholder:text-[#a8a0b1] rounded-lg '
               />
+      {folders ?       
+        <select className="border w-full p-1.5 mb-3.5 rounded-lg bg-[#3f3848] border-[#7e7885] text-sm outline-0 text-white " 
+        value={folders} onChange={(e) => setSelectedFolder(e.target.value)} >
+          <option value="" >No folder</option>
+          {folders.map((f) => (
+            <option key={f.id} value={f.name} >{f.name}</option>
+
+          )) }
+        </select> : ""}
       <textarea value={content} onChange={(e) => setContent(e.target.value)} className="bg-[#3f3848] w-116 h-15 mb-2.5  p-2.5 text-white placeholder:text-[#a8a0b1] border-[0.3px] text-sm focus:border-3  focus:outline-[#534e64]  outline-0  border-[#7e7885]  rounded-lg" placeholder="Start writing to your note..."></textarea>
     <div className="flex justify-self-end">
       <button className="px-5 py-2 text-sm font-bold text-white bg-linear-to-br from-[#9641dd] via-[#5465da] to-[#078eb2]  rounded-lg" onClick={() => setShowBox(false)}>Cancel</button> 
