@@ -1,7 +1,20 @@
 import Main from './Main'
 import FolderTab from './FolderTab'
+import { useState } from 'react';
 
 export default function Header( {addNewNote, handleDeleteNote, folders, selectedFolder, setSelectedFolder, notes, handleUpdateNote}) {
+
+  const [searchNote, setSearchNote] = useState("");
+
+  const searchedNote =
+  searchNote.trim().length > 0
+    ? notes.filter((note) =>
+        `${note.title} ${note.content}`
+          .toLowerCase()
+          .includes(searchNote.toLowerCase())
+      )
+    : notes;
+
   return (
     <div className=' flex flex-col basis-[84.5%] '>
       <div className='bg-linear-to-br from-slate-900 via-[#421267] to-slate-900  shadow-xl backdrop-blur-lg border-b border-[#4b455c] outline-0  flex flex-1 h-48 items-center justify-center flex-col basis-[24%] 
@@ -11,6 +24,8 @@ export default function Header( {addNewNote, handleDeleteNote, folders, selected
           <div className='relative'>
             <i className="fas fa-search absolute left-4.5 bottom-3 z-50 text-[#a8a0b1]"></i>
               <input 
+                value={searchNote}
+                onChange={(e) => setSearchNote(e.target.value)}
                 type="text" 
                 name="" 
                 placeholder='Search notes...'
@@ -25,7 +40,7 @@ export default function Header( {addNewNote, handleDeleteNote, folders, selected
           setSelectedFolder={setSelectedFolder}
           notes={notes}/>
       ) : ( */}
-      <Main addNewNote={addNewNote} notes={notes} folders={folders} handleDeleteNote={handleDeleteNote} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote}/>
+      <Main addNewNote={addNewNote} notes={searchedNote} folders={folders} handleDeleteNote={handleDeleteNote} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote}/>
 
 
     </div>

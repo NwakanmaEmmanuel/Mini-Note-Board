@@ -15,11 +15,21 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
     }
   }
 
+
   const handleCancel = () => {
     setNewFolderName("")
     setShowFolder(false)
   }
 
+
+  const handleDeleteFolder = (id) => {
+    const updatedFolders = folders.filter(folder => folder.id !== id);
+
+    setFolders(updatedFolders);
+
+    // sync with localStorage
+    // localStorage.setItem("folder-data", JSON.stringify(updatedFolders));
+  };
 
 
   return (
@@ -36,8 +46,8 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
       </div>
 
       {/* All Notes */}
-      <div onClick={ () => setSelectedFolder(false)} className="p-2.5 flex items-center text-sm w-full backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-3">
-        <i className="fa-regular fa-folder-open"></i>
+      <div onClick={ () => setSelectedFolder(false)} className="p-2.5  flex items-center text-sm w-full backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-3">
+        <i className="fa-regular fa-folder-open "></i>
         <span className='font-semibold ml-3 flex-1'>All Notes</span>
         <span className='rounded-full px-2 py-0.5 bg-white/20 text-xs'>{notes.length}</span>
       </div>
@@ -50,13 +60,22 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
             <div 
               key={folder.id}
               onClick={() => setSelectedFolder(folder)} 
-              className="p-2.5 flex items-center w-full backdrop-blur-sm bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-2 transition-colors">
-              <i className="fa-regular fa-folder text-sm"></i>
+              className="p-2.5 flex items-center w-full backdrop-blur-sm relative group bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-2 transition-colors">
+              <i className="fa-regular fa-folder text-sm group-hover:opacity-0"></i>
               <span className='text-sm font-semibold ml-3 flex-1 truncate w-[150px] text-white/90'>
                 {folder.name}
               </span>
-              <span className='rounded-full px-2 py-0.5 bg-white/20 text-xs ml-2'>  {notes.filter(note => note.folderId === folder.id).length}
-              </span>
+              <span className='rounded-full px-2 py-0.5 bg-white/20 text-xs ml-2'>  {notes.filter(note => note.folderId === folder.id).length}</span>
+              <i                             
+                onClick={(e) => {
+                e.stopPropagation();
+                handleDeleteFolder(folder.id);
+                }}
+                className="fa-solid fa-trash-can text-sm absolute left-0.5 transition-opacity ease-in duration-200  opacity-0 group-hover:opacity-100 ml-2 text-red-400">
+               </i>
+
+
+
             </div>
           ))}
 
