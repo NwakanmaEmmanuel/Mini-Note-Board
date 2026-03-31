@@ -81,26 +81,13 @@ function NoteCard({ notes, setShowBox, showBox, folders, addNewNote, handleDelet
 
               <div className="flex flex-row items-start justify-between">
 
-                <div className="text-xs text-[#9b8ba8] mt-auto flex flex-col ">
+                <div className="text-xs text-[#9b8ba8] mt-auto flex flex-col items-start">
                   <div className="text-[12px] font-bold">{dateStr} {timeStr}</div>
                   {noteFolder ?  
-                  (<span className="bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58] border border-[#a032f4] mt-1 px-1.5 py-1.5  rounded-[19px] mb-2.5 text-[10px] font-bold  text-[#beb8c3]">{noteFolder.name}</span>) : 
+                  (<span className="bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58] border border-[#a032f4] mt-1 px-2 py-0.5 rounded-full mb-4 text-[11px] font-bold  text-[#beb8c3]">{noteFolder.name}</span>) : 
                   <div className="mb-10"></div>
                   }
                 </div>
-
-{/* 
-              <div className="text-xs text-[#9b8ba8] mt-auto flex-col flex items-center gap-2">
-               <div className="text-[12px] font-bold">{dateStr} {timeStr}</div>
-
-              {noteFolder ? (
-                <span className="px-2 py-0.5 bg-[#2f1f47] border border-[#64428a] mb-6 rounded-full  text-[12px] font-semibold text-[#cbb6e6]">
-                  {noteFolder.name}
-                </span>
-              ) : <div className="mb-10"></div>} */}
-            {/* </div> */}
-
-
 
 
 

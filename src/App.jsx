@@ -11,7 +11,7 @@ function App() {
   const [notes, setNotes] = useLocalStorage('notes-app-data',[])
 
   const [selectedFolder, setSelectedFolder] = useState('')
-  const [folders, setFolders] = useState([])
+  const [folders, setFolders] = useLocalStorage('folder-data', [])
 
   function handleDeleteNote(id) {
     setNotes((notes) => notes.filter((note) => note.id !== id))
