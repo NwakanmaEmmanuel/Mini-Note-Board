@@ -24,6 +24,8 @@ function Main({addNewNote,handleDeleteNote,selectedFolder, folder, folders, setS
                     notes={notes}
                     showBox={showBox}
                     setShowBox={setShowBox}
+                    handleUpdateNote={handleUpdateNote}
+                    handleDeleteNote={handleDeleteNote}
                     />
             ) : (
             notes.length > 0 ? 

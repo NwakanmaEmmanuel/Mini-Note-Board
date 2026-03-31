@@ -1,6 +1,7 @@
 import NewNote from "./NewNote"
+import NoteCard from "./NoteCard"
 
-export default function FolderTab({ folder,folders,setShowBox,showBox, addNewNote, setSelectedFolder, notes }) {
+export default function FolderTab({ folder,folders,setShowBox,showBox, addNewNote, handleDeleteNote, handleUpdateNote, setSelectedFolder, notes }) {
 
   //     function handleCreateNote(e) {
   // e.preventDefault();
@@ -18,7 +19,7 @@ export default function FolderTab({ folder,folders,setShowBox,showBox, addNewNot
   //     setShowBox(false);
     
   // }
-  const folderNotes = notes.filter(note => note.folderId === folder.id)
+  const folderNotes = notes.filter(note => Number(note.folderId) === Number(folder.id))
   
 
   return (
@@ -37,12 +38,21 @@ export default function FolderTab({ folder,folders,setShowBox,showBox, addNewNot
         </button>
         {showBox &&  <NewNote folders={folders} currentFolderId={folder.id} setShowBox={setShowBox} addNewNote={addNewNote} setSelectedFolder={setSelectedFolder} />}
         
-      </> : (
-        folderNotes.map(note => (
-          <div key={note.id} className="text-white">
-            {note.title}
-          </div>
-        ))
+      </> : ( 
+          <NoteCard
+            notes={folderNotes}
+            folders={folders}
+            setShowBox={setShowBox}
+            showBox={showBox}
+            addNewNote={addNewNote}
+            handleDeleteNote={handleDeleteNote}
+            handleUpdateNote={handleUpdateNote}
+          />
+        // folderNotes.map(note => (
+        //   <div key={note.id} className="text-white">
+        //     {note.title}
+        //   </div>
+        // ))
       )}
        
        </div>

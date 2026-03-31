@@ -79,7 +79,7 @@ export default function NewNote( {setShowBox, folders,currentFolderId, setSelect
               />
       {folders ?       
         <select className="border w-full p-1.5 mb-3.5 rounded-lg bg-[#3f3848] border-[#7e7885] text-sm outline-0 text-white " 
-        value={selectedFolderId} onChange={(e) => setSelectedFolderId(e.target.value)} >
+        value={selectedFolderId} onChange={(e) => setSelectedFolderId(Number(e.target.value))} >
           <option className="bg-black" value="" >No folder</option>
           {folders.map((f) => (
             <option className="bg-black hover:bg-white"
