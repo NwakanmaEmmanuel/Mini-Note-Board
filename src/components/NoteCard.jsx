@@ -83,8 +83,26 @@ function NoteCard({ notes, setShowBox, showBox, folders, addNewNote, handleDelet
 
                 <div className="text-xs text-[#9b8ba8] mt-auto flex flex-col ">
                   <div className="text-[12px] font-bold">{dateStr} {timeStr}</div>
-                  <div>{noteFolder ? noteFolder.name : <div className="mb-10"></div>}</div>
+                  {noteFolder ?  
+                  (<span className="bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58] border border-[#a032f4] mt-1 px-1.5 py-1.5  rounded-[19px] mb-2.5 text-[10px] font-bold  text-[#beb8c3]">{noteFolder.name}</span>) : 
+                  <div className="mb-10"></div>
+                  }
                 </div>
+
+{/* 
+              <div className="text-xs text-[#9b8ba8] mt-auto flex-col flex items-center gap-2">
+               <div className="text-[12px] font-bold">{dateStr} {timeStr}</div>
+
+              {noteFolder ? (
+                <span className="px-2 py-0.5 bg-[#2f1f47] border border-[#64428a] mb-6 rounded-full  text-[12px] font-semibold text-[#cbb6e6]">
+                  {noteFolder.name}
+                </span>
+              ) : <div className="mb-10"></div>} */}
+            {/* </div> */}
+
+
+
+
 
                 
                 <div className=" opacity-0 group-hover:opacity-100 transition-opacity duration-200   flex items-center justify-center gap-[5px]  ">
@@ -106,12 +124,12 @@ function NoteCard({ notes, setShowBox, showBox, folders, addNewNote, handleDelet
               {isEditing ? (
                   <textarea 
                     type="text"
-                    className=" text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg bg-[#451f73] field-sizing-content"
+                    className=" text-white outline-1 outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg  bg-[#451f73] field-sizing-content"
                     value={editedContent}
                     onChange={(e) => setEditedContent(e.target.value)}                  
                     />
                 ) : (
-                <p className="text-sm text-[#c5b9d0] h-[18px] overflow-hidden ">{note.content || "No content yet..."}</p>)
+                <p className="text-sm text-[#c5b9d0] h-[18px] italic overflow-hidden ">{note.content || "No content yet..."}</p>)
                 }
               
             </div>

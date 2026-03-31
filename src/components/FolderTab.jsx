@@ -1,23 +1,6 @@
-import { useState } from "react"
 import NewNote from "./NewNote"
 
 export default function FolderTab({ folder,folders,setShowBox,showBox, addNewNote, setSelectedFolder, notes }) {
-
-  
-
-  const [title, setTitle] = useState("")
-  const [content, setContent] = useState("")
-
-  const handleCreateFolderNote = (e) => {
-
-    e.preventDefault();
-
-    addNewNote({
-      id: Date.now,
-      title,
-      content
-    })
-
 
   //     function handleCreateNote(e) {
   // e.preventDefault();
@@ -35,8 +18,7 @@ export default function FolderTab({ folder,folders,setShowBox,showBox, addNewNot
   //     setShowBox(false);
     
   // }
-  }
-const folderNotes = notes.filter(note => note.folderId === folder.id)
+  const folderNotes = notes.filter(note => note.folderId === folder.id)
   
 
   return (
