@@ -32,7 +32,7 @@ function Main({addNewNote,handleDeleteNote,selectedFolder, folder, folders, setS
                 <NoteCard notes={notes} showBox={showBox} setShowBox={setShowBox} addNewNote={addNewNote} folders={folders} handleDeleteNote={handleDeleteNote} handleUpdateNote={handleUpdateNote}/> : 
  
                 <>
-            <div className="p-14 bg-linear-to-br  via-purple-900 to-slate-900  shadow-xl backdrop-blur-lgp-10 w-120 rounded-3xl border border-[#4b455c] m-10 items-center flex flex-col justify-center">
+            <div className="p-14 bg-linear-to-br  via-purple-900 to-slate-900  shadow-xl backdrop-blur-lgp-10 w-120 rounded-3xl border border-[#4b455c] max-h-[480px]  m-10 items-center flex flex-col justify-center">
 
                 <div className="text-7xl mb-6 relative animate-[moveUpDown_2s_ease-in-out_infinite_alternate] ">📝</div>
                 <h1 className="text-4xl font-bold text-white mb-4.5">Start Writing</h1>
