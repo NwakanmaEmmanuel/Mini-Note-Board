@@ -2,7 +2,6 @@
 import './App.css'
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
-// import { useState } from 'react'
 import useLocalStorage from './components/useLocalStorage'
 import { useState } from 'react'
 
@@ -27,12 +26,13 @@ function App() {
       : note
     ))
   }
+  
   return (
+
 
     <div className='flex h-screen overflow-hidden  '>
       <Sidebar folders={folders} setFolders={setFolders} notes={notes} setSelectedFolder={setSelectedFolder}/>
       <Header folders={folders} setFolders={setFolders} addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote}/>
-       
     </div>
       
   )

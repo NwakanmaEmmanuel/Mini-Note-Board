@@ -5,7 +5,6 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
 
   const [showFolder, setShowFolder] = useState(false)
   const [newFolderName, setNewFolderName] = useState("")
-  // const [showFolderTab, setShowFolderTab] = useState(null)
 
   const handleCreateFolder = () => {
     if (newFolderName.trim()) {
@@ -83,6 +82,7 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
       {/* Create Folder Form */}
       {showFolder && 
         <div className='w-full mb-3'>
+
           <input 
             type="text"  
             placeholder='Folder name...' 
@@ -91,7 +91,8 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
             onKeyDown={(e) => e.key === 'Enter' && handleCreateFolder()}
             className='border border-white/40 rounded-md w-full p-2 pl-3 focus:outline-none focus:border-[#8464a3] bg-[#261a47] text-sm text-white placeholder:text-white/50' 
             autoFocus
-          />                                               
+          />             
+
           <div className='flex items-center gap-2 mt-2'>
             <button 
               onClick={handleCreateFolder}
@@ -104,6 +105,7 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
               ✕ Cancel
             </button>
           </div>
+
         </div>
       }
 
@@ -111,10 +113,6 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
 
           
           
-          
-      {/* ✅ Show FolderTab modal when a folder is clicked */}
-    {/* {showFolderTab && <FolderTab setShowFolderTab={setShowFolderTab} folder={showFolderTab} />} */}
-
 
     </div>
   )

@@ -7,7 +7,6 @@ export default function FolderTab({ folder,folders,setShowBox,showBox, addNewNot
   
 
   return (
-    // <div className="p-14 bg-red-600 shadow-xl   rounded-3xl border border-[#4b455c] m-10 flex flex-col">
     <>
 
       {folderNotes.length === 0 ? 
@@ -30,10 +29,10 @@ export default function FolderTab({ folder,folders,setShowBox,showBox, addNewNot
             addNewNote={addNewNote}
             handleDeleteNote={handleDeleteNote}
             handleUpdateNote={handleUpdateNote}
-          />}
+          />
+        }
 
       
-        </>
-     
+    </>
   )
 }
