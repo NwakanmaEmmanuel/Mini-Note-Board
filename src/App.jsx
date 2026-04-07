@@ -30,7 +30,7 @@ function App() {
   return (
 
 
-    <div className='flex h-screen overflow-hidden  '>
+    <div className='flex flex-col md:flex-row h-screen overflow-hidden  '>
       <Sidebar folders={folders} setFolders={setFolders} notes={notes} setSelectedFolder={setSelectedFolder}/>
       <Header folders={folders} setFolders={setFolders} addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote}/>
     </div>

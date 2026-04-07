@@ -36,6 +36,8 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
       
       {/* Header */}
       <div className='flex items-center justify-between mb-4'>
+        <button className='absolute block md:hidden'>👆;</button>
+        <button className='absolute'>❌</button>
         <h3 className='text-xl text-white font-bold'>Folders</h3>
         <button 
           onClick={() => setShowFolder(true)} 
@@ -55,7 +57,6 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
       <div className='flex-1 overflow-y-auto overflow-x-hidden pr-1'>
            {folders.map((folder) => (
 
-            // const  folder.name.length > 13 ? folder.name : folder.name.split(" ").slice(0, 10).join(" ") + "...";
             <div 
               key={folder.id}
               onClick={() => setSelectedFolder(folder)} 
