@@ -2,7 +2,7 @@ import Main from './Main'
 import FolderTab from './FolderTab'
 import { useState } from 'react';
 
-export default function Header( {addNewNote, handleDeleteNote, folders, selectedFolder, setSelectedFolder, notes, handleUpdateNote}) {
+export default function Header( {addNewNote, handleDeleteNote, folders, selectedFolder, setSelectedFolder, notes, handleUpdateNote, setSidebarOpen, sidebarOpen}) {
 
   const [searchNote, setSearchNote] = useState("");
 
@@ -16,9 +16,11 @@ export default function Header( {addNewNote, handleDeleteNote, folders, selected
     : notes;
 
   return (
-    <div className=' flex flex-col basis-[84.5%] md:basis-full'>
+    <div className=' flex flex-col flex-1 min-w-0 md:basis-full'>
 
       <div className='bg-linear-to-br from-slate-900 via-[#421267] to-slate-900  shadow-xl backdrop-blur-lg border-b border-[#4b455c] outline-0  flex flex-1 h-48 items-center justify-center flex-col basis-[24%]'>
+
+          <button className='absolute block md:hidden ' onClick={() => setSidebarOpen(true)}>☰ </button>
 
           <h1 className='mb-4 text-shadow-[0_0_30px_rgba(255,255,255,0.3)] text-6xl text-[#f3e9ff] font-black '>Notes✨</h1>
           <div className='relative'>
@@ -29,7 +31,7 @@ export default function Header( {addNewNote, handleDeleteNote, folders, selected
                 type="text" 
                 name="" 
                 placeholder='Search notes...'
-                className='w-116 h-9.5 p-2.5 pl-11.5   focus:border-3 focus:outline-[#534e64]  outline-0 bg-[#270f3d] border-[#7e7885] border-[0.3px] text-white placeholder:text-[#a8a0b1] rounded-lg '
+                className='w-full max-w-116   h-9.5 p-2.5 pl-11.5   focus:border-3 focus:outline-[#534e64]  outline-0 bg-[#270f3d] border-[#7e7885] border-[0.3px] text-white placeholder:text-[#a8a0b1] rounded-lg '
               />
           </div>
           

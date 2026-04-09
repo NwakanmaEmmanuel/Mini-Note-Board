@@ -64,7 +64,7 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote ,fo
         <div
             onClick={() => setSelectedNote(null)}
             className="fixed inset-0 bg-black/40 flex items-center justify-center">
-        <div className='sticky bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58]  border border-[#754797] max-h-[80vh]  text-amber-50 left-[20%] top-[30%] p-6 rounded-[10px] w-[510px] flex flex-col gap-2.5'
+        <div className=' bg-linear-to-br from-[#763ea0] via-[#571788] to-[#331b58]  border border-[#754797] max-h-[80vh] w-full max-w-[510px] mx-4  text-amber-50  p-6 rounded-[10px]  flex flex-col gap-2.5'
             onClick={(e) => e.stopPropagation()} >
 
             
@@ -80,7 +80,7 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote ,fo
                     <h1 className='text-3xl font-bold' >{ editedTitle || "Untitled Note"}</h1>
 
                     )}
-                    <button onClick={() => setSelectedNote(null)} className=' absolute left-[482px] text-[17px] font-bold text-lg  top-0 hover:scale-[1.3] '>&times;</button>
+                    <button onClick={() => setSelectedNote(null)} className=' absolute  top-2 right-3 text-[17px] font-bold text-lg   hover:scale-[1.3] '>&times;</button>
                     <div  className='flex gap-1.5  justify-center'>
                         {isEditing ? (
                         <button onClick={handleSaveEdit} className='flex items-center border-[1.5px] bg-[#123d23] border-[#055826] px-2.5  rounded-md hover:bg-[#16482a] cursor-auto '>
@@ -129,7 +129,7 @@ export default function NoteViewer( {note ,setSelectedNote, handleUpdateNote ,fo
                         {isEditing ? (
                         <textarea 
                             type="text"
-                            className=" text-white bg-[#705095] border-[#bfbdc1] border-[0.1px] resize-none h-[358px] w-[35em] outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg -sizing-content"
+                            className=" text-white bg-[#705095] border-[#bfbdc1] w-full border-[0.1px] resize-none h-[358px]  outline-amber-50 py-[7px] text-[13px] px-2.5 rounded-lg -sizing-content"
                             value={editedContent}
                             onChange={(e) => setEditedContent(e.target.value)}                  
                         />

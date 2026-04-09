@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import NewNote  from './NewNote'
 
-function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
+function Sidebar( {notes,folders, setFolders,setSidebarOpen, sidebarOpen, setSelectedFolder}) {
 
   const [showFolder, setShowFolder] = useState(false)
   const [newFolderName, setNewFolderName] = useState("")
@@ -32,12 +32,12 @@ function Sidebar( {notes,folders, setFolders, setSelectedFolder}) {
 
 
   return (
-    <div className='bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 shadow-xl backdrop-blur-lg border-r border-[#4b455c] p-4 h-screen flex flex-col basis-[15.5%]'>
+    <div className={`bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 shadow-xl backdrop-blur-lg border-r border-[#4b455c] p-4 h-screen flex flex-col basis-[15.5%]
+      fixed md:relative z-40 md:z-auto transition-transform duration-300 w-60 md:w-auto md:basis-[15.5%] ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`} >
       
       {/* Header */}
       <div className='flex items-center justify-between mb-4'>
-        <button className='absolute block md:hidden'>👆;</button>
-        <button className='absolute'>❌</button>
+        <button className="md:hidden absolute top-3 right-3 text-white text-xl">x</button>
         <h3 className='text-xl text-white font-bold'>Folders</h3>
         <button 
           onClick={() => setShowFolder(true)} 
