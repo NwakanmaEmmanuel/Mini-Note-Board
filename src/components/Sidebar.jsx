@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import NewNote  from './NewNote'
 
-function Sidebar( {notes, folders, setFolders, setSidebarOpen, sidebarOpen, setSelectedFolder}) {
+function Sidebar( {notes, folders, setFolders, setSidebarOpen, sidebarOpen,selectedFolder, setSelectedFolder}) {
 
   const [showFolder, setShowFolder] = useState(false)
   const [newFolderName, setNewFolderName] = useState("")
@@ -33,7 +33,7 @@ function Sidebar( {notes, folders, setFolders, setSidebarOpen, sidebarOpen, setS
 
   return (
     <div className={`bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 shadow-xl backdrop-blur-lg border-r border-[#4b455c] p-4 h-screen flex flex-col basis-[15.5%] fixed md:relative z-40 md:z-auto transition-transform duration-300 w-60 md:w-auto md:basis-[15.5%] md:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}  `}>
-      <button className="md:hidden absolute top-0 right-[5px] rounded-[15px] font-bold text-white text-[15px]" onClick={() => setSidebarOpen(false)}>✕</button> 
+      <button className="md:hidden absolute top-0 right-[5px] rounded-[15px] font-bold active:border-[0.5px]  px-2 active:border-[#d8cfcf] text-white text-[15px]" onClick={() => setSidebarOpen(false)}>✕</button> 
       <div className='flex items-center justify-between mb-4'>
         <h3 className='text-xl text-white font-bold'>Folders</h3>
         <button 
@@ -58,7 +58,7 @@ function Sidebar( {notes, folders, setFolders, setSidebarOpen, sidebarOpen, setS
               key={folder.id}
               onClick={() => setSelectedFolder(folder)} 
               className="p-2.5 flex items-center w-full backdrop-blur-sm relative group bg-[#261a47] text-white border border-white/20 rounded-md hover:bg-[#392c54] cursor-pointer mb-2 transition-colors">
-              <i className="fa-regular fa-folder text-sm group-hover:opacity-0"></i>
+              <i className={`fa-regular fa-folder text-sm group-hover:opacity-0 ${selectedFolder?.id === folder.id ? 'opacity-0' : 'opacity-100'}`} ></i>
               <span className='text-sm font-semibold ml-3 flex-1 truncate w-[150px] text-white/90'>
                 {folder.name}
               </span>
@@ -68,7 +68,7 @@ function Sidebar( {notes, folders, setFolders, setSidebarOpen, sidebarOpen, setS
                 e.stopPropagation();
                 handleDeleteFolder(folder.id);
                 }}
-                className="fa-solid fa-trash-can text-sm absolute left-0.5 transition-opacity ease-in duration-200  opacity-0 group-hover:opacity-100 ml-2 text-red-400">
+                className={`fa-solid fa-trash-can text-sm absolute left-0.5 transition-opacity ease-in duration-200  opacity-0 group-hover:opacity-100 ml-2 text-red-400 ${selectedFolder?.id === folder.id ? 'opacity-100' : 'opacity-0'}`}>
                </i>
 
 

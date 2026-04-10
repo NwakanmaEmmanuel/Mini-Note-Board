@@ -65,7 +65,9 @@ function NoteCard({ notes, setShowBox, showBox, folders, addNewNote, handleDelet
             
 
             <div 
-              className=" group p-[25px] w-full sm:w-[270px] flex flex-col border border-[#64428a] bg-transparent rounded-xl relative cursor-pointer"
+              className=" group p-[25px] w-full sm:w-[270px] flex flex-col border border-[#64428a] bg-transparent rounded-xl relative cursor-pointer
+                shadow-[-2px_4px_48px_4px_rgba(40,25,70)] 
+                hover:shadow-[inset_-1px_-1px_19px_20px_rgb(80,26,121)] transition-shadow duration-300   hover:scale-[1.06] "
               onClick = {(e)  => {if (!isEditing)  {setSelectedNote(note); e.stopPropagation()} } }
 
               >

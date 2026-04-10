@@ -3,7 +3,7 @@ import { useState } from "react"
 
 
 
-export default function NewNote( {setShowBox, folders,currentFolderId, setSelectedFolder, addNewNote}) {
+export default function NewNote( {setShowBox, folders,currentFolderId, addNewNote}) {
 
 
   const [title, setTitle] = useState("")

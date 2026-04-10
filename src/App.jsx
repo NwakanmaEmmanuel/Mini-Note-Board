@@ -33,7 +33,7 @@ function App() {
 
 
     <div className='flex h-screen overflow-hidden relative'>
-      <Sidebar folders={folders} setFolders={setFolders} notes={notes} setSelectedFolder={setSelectedFolder} setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}/>
+      <Sidebar folders={folders} setFolders={setFolders} notes={notes} setSelectedFolder={setSelectedFolder} selectedFolder={selectedFolder} setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}/>
       <Header folders={folders} setFolders={setFolders} addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote} setSidebarOpen={setSidebarOpen}/>
     </div>
       
