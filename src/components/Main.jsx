@@ -3,7 +3,7 @@ import NewNote from "./NewNote";
 import NoteCard from "./NoteCard";
 import FolderTab from "./FolderTab";
 
-function Main({addNewNote,handleDeleteNote,selectedFolder, folder, folders, setSelectedFolder, notes, handleUpdateNote}) {
+function Main({addNewNote,handleDeleteNote,selectedFolder,  folders, setSelectedFolder, notes, handleUpdateNote}) {
 
     const [showBox, setShowBox] = useState(false);
 
@@ -12,7 +12,7 @@ function Main({addNewNote,handleDeleteNote,selectedFolder, folder, folders, setS
 
 
         
-        <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 h-[547px]  shadow-xl backdrop-blur-lgp-10 flex justify-center overflow-hidden relative basis-[76%]">
+        <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 flex-1 overflow-y-auto  shadow-xl backdrop-blur-lgp-10 flex justify-center overflow-hidden relative basis-[76%]">
             
            {selectedFolder ? (
 

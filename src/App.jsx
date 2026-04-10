@@ -11,6 +11,8 @@ function App() {
 
   const [selectedFolder, setSelectedFolder] = useState('')
   const [folders, setFolders] = useLocalStorage('folder-data', [])
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
 
   function handleDeleteNote(id) {
     setNotes((notes) => notes.filter((note) => note.id !== id))
@@ -30,9 +32,9 @@ function App() {
   return (
 
 
-    <div className='flex h-screen overflow-hidden  '>
-      <Sidebar folders={folders} setFolders={setFolders} notes={notes} setSelectedFolder={setSelectedFolder}/>
-      <Header folders={folders} setFolders={setFolders} addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote}/>
+    <div className='flex h-screen overflow-hidden relative'>
+      <Sidebar folders={folders} setFolders={setFolders} notes={notes} setSelectedFolder={setSelectedFolder} setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}/>
+      <Header folders={folders} setFolders={setFolders} addNewNote={addNewNote} handleDeleteNote={handleDeleteNote} notes={notes} selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} handleUpdateNote={handleUpdateNote} setSidebarOpen={setSidebarOpen}/>
     </div>
       
   )
