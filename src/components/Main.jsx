@@ -3,7 +3,7 @@ import NewNote from "./NewNote";
 import NoteCard from "./NoteCard";
 import FolderTab from "./FolderTab";
 
-function Main({addNewNote,handleDeleteNote,selectedFolder, folder, folders, setSelectedFolder, notes, handleUpdateNote}) {
+function Main({addNewNote,handleDeleteNote,selectedFolder,  folders, setSelectedFolder, notes, handleUpdateNote}) {
 
     const [showBox, setShowBox] = useState(false);
 

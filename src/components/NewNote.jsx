@@ -35,12 +35,13 @@ export default function NewNote( {setShowBox, folders,currentFolderId, setSelect
 
 
   return (
-    <div className="bg-black/40 fixed inset-0 items-center justify-center" 
+    <div className="bg-black/40 fixed inset-0 flex p-4 items-center justify-center" 
         onClick={() => setShowBox(null)}>
 
-      <form onSubmit={handleCreateNote} className="bg-linear-to-br from-[#2b2434] via-[#2e213a] to-[#20192b]  inset-0 bg-black/40 flex items-center justify-center p-4  min-h-[273px]   rounded-xl border-[0.5px] border-[#4b455c] w-full max-w-[520px] relative "
-        onClick={(e) => e.stopPropagation()}>
-      <button className="text-black text-lg font-bold  absolute top-2 right-3  "  onClick={() => setShowBox(false)}>x</button>
+      <form onSubmit={handleCreateNote} className="bg-linear-to-br from-[#2b2434] via-[#2e213a] to-[#20192b] w-full relative max-w-[520px]  min-h-[273px] p-7  rounded-xl border-[0.5px] border-[#4b455c] "
+        onClick={(e) => e.stopPropagation()}>                                           {/* w-full max-w-[520px] relative */}
+
+      <button className="text-black text-lg font-bold absolute  top-2 right-3  "  onClick={() => setShowBox(false)}>x</button>
       <h1 className="text-white text-2xl font-bold mb-2">Create New Note</h1>
       <p className="text-[#c1bcc5] text-sm ">Create a new note with an optional title, content, and folder organization.</p>
       <input 

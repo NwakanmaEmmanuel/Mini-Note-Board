@@ -52,10 +52,10 @@ function NoteCard({ notes, setShowBox, showBox, folders, addNewNote, handleDelet
   // To Implement Folder
 
   return (
-    <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 basis-[76%] p-4 md:p-[60px] lg:p-[97px] flex-1 overflow-y-auto sm:p-8 flex flex-wrap gap-4 justify-center sm:justify-start relative">
+    <div className="bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 basis-[76%] p-4 sm:p-8 md:p-[60px] justify-center sm:justify-start lg:p-[97px] flex-1 overflow-y-auto flex flex-wrap gap-4 relative">
       {notes.map((note) => {
         
-        const noteFolder = folders?.find(f => Number(f.id) === Number(note.folderId));
+         const noteFolder = folders?.find(f => Number(f.id) === Number(note.folderId));  
         const { dateStr, timeStr } = formatDate(note.updatedAt);
           const isEditing = editingNoteId === note.id
 
